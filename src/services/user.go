@@ -1,23 +1,28 @@
 package services
 
 import (
+	"go-builder-plate/src/auth"
 	"go-builder-plate/src/models"
+	"go-builder-plate/src/utils"
 	"net/http"
-
-	"github.com/labstack/echo/v4"
 )
 
-func Login(c echo.Context) error {
-	var loginData models.LoginRequest
-	if err := c.Bind(&loginData); err != nil {
-		return c.JSON(http.StatusBadRequest, map[string]string{
-			"message": "Invalid request",
-		})
+func Login(payload models.LoginRequest) (int, interface{}) {
+	// validate login data
+	if payload.Username != "hanif" || payload.Password != "123123" {
+		return utils.ResponseError(http.StatusBadRequest, "Invalid request")
 	}
 
-	if loginData.Username == "hanif" || loginData.Password == "123123" {
-		return c.JSON(http.StatusBadRequest, map[string]string{
-			"message": "Invalid request",
-		})
+	// generate token
+	token, err := auth.JWT(payload.Username)
+	if err != nil {
+		return utils.ResponseError(http.StatusInternalServerError, "Failed to generate token")
 	}
+
+	data := map[string]interface{}{
+		"token": token,
+		"user":  payload.Username,
+	}
+
+	return utils.Response(http.StatusOK, "Login successful", data)
 }
