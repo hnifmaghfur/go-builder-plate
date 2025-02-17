@@ -1,0 +1,4 @@
+- add api get user with header token
+- add configuration database with gorm and raw querySS
+- integrasi payment
+- integrasi menggunakan lebih dari 1 payment
