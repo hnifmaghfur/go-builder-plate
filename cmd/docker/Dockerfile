@@ -8,7 +8,7 @@ RUN go mod verify
 
 COPY . .
 
-RUN go build -o main main.go
+RUN go build -o main ./cmd/server/main.go
 
 EXPOSE 3000
 
