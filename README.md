@@ -70,30 +70,42 @@ Go Builder Plate is a starter template for Go projects. It provides a structured
 
 ```
 go-builder-plate/
-├── src/                    # Source code directory
-│   ├── auth/              # Authentication related code
-│   │   └── jwt.go        # JWT implementation
-│   ├── handlers/          # HTTP request handlers
-│   │   └── user.go       # User-related handlers
-│   ├── models/           # Data models
-│   │   └── user.go       # User model definition
-│   ├── services/         # Business logic layer
-│   │   └── user.go       # User-related services
-│   ├── utils/            # Utility functions
-│   │   └── response.go   # HTTP response helpers
-│   └── validation/       # Input validation
-│       └── user.go       # User-related validations
-├── docker/                # Docker related files
-│   ├── dev/              # Development environment
-│   └── prod/             # Production environment
-├── .dockerignore         # Docker ignore file
-├── Dockerfile            # Main Docker build file
-├── docker-compose.yml    # Docker compose configuration
-├── .gitignore            # Git ignore file
-├── go.mod                # Go module file
-├── go.sum                # Go module checksum
-├── main.go               # Application entry point
-└── README.md             # Project documentation
+├── cmd/                      # Main application entry points
+│   |── server/               # Server application
+│   |   └── main.go          # Entry point
+│   └── docker/               # Docker related files
+│       └── DockerFile        # Dockerfile for development environment
+├── internal/                 # Private application code
+│   ├── auth/                 # Authentication related code
+│   │   └── jwt.go            # JWT implementation
+│   ├── handler/              # HTTP request handlers
+│   │   └── http/             # HTTP handlers
+│   │       └── v1/           # API version 1
+│   │           └── user/     # User-related handlers
+│   ├── model/                # Data models
+│   │   └── user.go           # User model definition
+│   ├── repository/           # Data access layer
+│   │   └── user.go           # User repository
+│   ├── service/              # Business logic layer
+│   │   └── user.go           # User-related services
+│   └── middleware/           # HTTP middleware
+│       └── auth.go           # Authentication middleware
+├── pkg/                      # Library code that can be used by external applications
+│   └── utils/                # Utility functions
+│       └── response.go       # HTTP response helpers
+├── api/                      # API contract files (OpenAPI/Swagger)
+│   └── openapi/              # OpenAPI specifications
+├── configs/                  # Configuration files
+│   ├── app.yaml              # Application configuration
+│   └── database.yaml         # Database configuration
+├── migrations/               # Database migrations
+├── scripts/                  # Build and utility scripts
+├── .gitignore                # Git ignore file
+├── go.mod                    # Go module file
+├── docker-compose.yaml       # Docker compose file
+├── go.sum                    # Go module checksum
+├── Makefile                  # Common commands
+└── README.md                 # Project documentation
 ```
 
 ## Contribution Guidelines
