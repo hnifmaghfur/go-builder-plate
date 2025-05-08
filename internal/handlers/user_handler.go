@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"fmt"
-	"go-builder-plate/src/models"
-	"go-builder-plate/src/services"
-	"go-builder-plate/src/validation"
+	"go-builder-plate/internal/models"
+	"go-builder-plate/internal/services"
+	"go-builder-plate/internal/validation"
 	"net/http"
 
 	"github.com/labstack/echo/v4"

@@ -1,9 +1,9 @@
 package services
 
 import (
-	"go-builder-plate/src/auth"
-	"go-builder-plate/src/models"
-	"go-builder-plate/src/utils"
+	"go-builder-plate/internal/auth"
+	"go-builder-plate/internal/models"
+	"go-builder-plate/internal/utils"
 	"net/http"
 )
 

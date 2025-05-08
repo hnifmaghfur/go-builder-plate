@@ -1,7 +1,7 @@
 package validation
 
 import (
-	"go-builder-plate/src/models"
+	"go-builder-plate/internal/models"
 
 	"github.com/go-playground/validator/v10"
 )

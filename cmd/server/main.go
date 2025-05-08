@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go-builder-plate/src/handlers"
+	"go-builder-plate/internal/handlers"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
