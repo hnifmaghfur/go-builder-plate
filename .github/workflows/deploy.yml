@@ -31,6 +31,7 @@ jobs:
               uses: docker/build-push-action@v5
               with:
                 context: .
+                file: ./cmd/docker/Dockerfile
                 push: true
                 tags: ghcr.io/${{ github.repository_owner }}/go-builder-plate:latest
         
