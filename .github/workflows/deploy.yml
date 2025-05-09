@@ -42,7 +42,7 @@ jobs:
                 username: ${{ secrets.SSH_USER }}
                 key: ${{ secrets.SSH_KEY }}
                 script: |
-                  cd ~/services/
-                  docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GHCR_TOKEN }}
+                  cd ~/services
+                  echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
                   docker pull ghcr.io/${{ github.repository }}:latest
                   docker run -d --name go-builder-plate ghcr.io/${{ github.repository }}:latest
